@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="eXs-rG-uaP">
-                                <rect key="frame" x="95" y="298" width="200" height="248"/>
+                                <rect key="frame" x="95" y="268" width="200" height="248"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sun.and.horizon.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="bPP-hT-urL">
                                         <rect key="frame" x="0.0" y="2" width="200" height="195.33333333333331"/>
@@ -44,7 +44,7 @@
                         <color key="backgroundColor" systemColor="systemBlueColor"/>
                         <constraints>
                             <constraint firstItem="tq6-dm-fKb" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="M04-8D-y2j"/>
-                            <constraint firstItem="eXs-rG-uaP" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="hC8-mh-SPN"/>
+                            <constraint firstItem="eXs-rG-uaP" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-30" id="hC8-mh-SPN"/>
                             <constraint firstItem="tq6-dm-fKb" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="oLe-5f-uui"/>
                             <constraint firstItem="eXs-rG-uaP" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="prE-AA-ucp"/>
                             <constraint firstAttribute="trailing" secondItem="tq6-dm-fKb" secondAttribute="trailing" id="rhH-xZ-3gC"/>

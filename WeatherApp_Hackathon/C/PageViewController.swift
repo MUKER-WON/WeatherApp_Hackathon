@@ -11,8 +11,12 @@ import CoreLocation
 final class PageViewController: UIPageViewController {
     
     var pages = [UIViewController]()
+    
+
     var pageControl = UIPageControl()
+    
     let locationManager = CLLocationManager()
+    
     var currentIndex = 0 {
         didSet {
             pageControl.currentPage = currentIndex
@@ -25,6 +29,11 @@ final class PageViewController: UIPageViewController {
         makePageControl()
         locationButton()
         tableButton()
+        
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.requestLocation()
+        
     }
     
     private func locationButton() {
@@ -36,6 +45,7 @@ final class PageViewController: UIPageViewController {
         button.tintColor = .systemBlue
         
         view.addSubview(button)
+        button.addTarget(self, action: #selector(locationPressed), for: .touchUpInside) // 버튼 타겟 연결
         
         let safeArea = view.safeAreaLayoutGuide
         
@@ -62,6 +72,12 @@ final class PageViewController: UIPageViewController {
         button.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor, constant: -15).isActive = true
         button.heightAnchor.constraint(equalToConstant: 40).isActive = true
         button.widthAnchor.constraint(equalToConstant: 40).isActive = true
+        button.addTarget(self, action: #selector(listPressed), for: .touchUpInside) // 버튼 타겟 연결
+        
+    }
+    
+    @objc func listPressed() {
+        present(SideMenuViewController(), animated: true)
     }
     
     func setUI() {
@@ -96,6 +112,15 @@ final class PageViewController: UIPageViewController {
         
         
         let itemVC4 = WeatherViewController(nibName: "WeatherViewController", bundle: nil)
+        itemVC4.areaName = "전주"
+        itemVC4.weatherIamge = UIImage(systemName: "sun.max.fill")
+        itemVC4.temp = 28
+        itemVC4.weaterDescription = "맑음"
+        itemVC4.maxTemp = 29
+        itemVC4.minTemp = 24
+        itemVC4.background = UIImage(named: "jeonju")
+        
+        let itemVC5 = WeatherViewController(nibName: "WeatherViewController", bundle: nil)
         itemVC4.areaName = "전주"
         itemVC4.weatherIamge = UIImage(systemName: "sun.max.fill")
         itemVC4.temp = 28
@@ -142,7 +167,7 @@ final class PageViewController: UIPageViewController {
     }
     
 }
-
+//MARK: - ExtensionPageViewDataSource
 extension PageViewController: UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
@@ -169,4 +194,26 @@ extension PageViewController: UIPageViewControllerDataSource {
         
     }
     
+}
+
+//MARK: - Extension
+extension PageViewController: CLLocationManagerDelegate {
+    
+    @objc func locationPressed() {
+        locationManager.requestLocation()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.last {
+            locationManager.stopUpdatingLocation()
+            let lat = location.coordinate.latitude
+            let lon = location.coordinate.longitude
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error)
+    }
+    
+
 }

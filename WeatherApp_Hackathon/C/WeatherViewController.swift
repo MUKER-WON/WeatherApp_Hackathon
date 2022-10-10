@@ -46,7 +46,6 @@ class WeatherViewController: UIViewController {
         _maxTempLabel.text = "최고 온도: \(maxTemp)°"
         _minTempLabel.text = "최저 온도: \(minTemp)°"
         
-        
         tableView.register(UINib(nibName: "WeekendCell", bundle: nil), forCellReuseIdentifier: "WeekCell")
         
         tableView.dataSource = self
