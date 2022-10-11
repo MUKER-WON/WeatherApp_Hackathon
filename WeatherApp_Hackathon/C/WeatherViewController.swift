@@ -17,7 +17,6 @@ class WeatherViewController: UIViewController {
     @IBOutlet private weak var _areaNameLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
-    var viewBlurEffect: UIVisualEffectView!
     var minTemp: Int = .zero
     var maxTemp: Int = .zero
     var weaterDescription: String = ""
@@ -26,6 +25,7 @@ class WeatherViewController: UIViewController {
     var areaName: String = ""
     var background: UIImage?
     var weekArray: [Weekend] = [
+        
         Weekend(weekWeatherImage: UIImage(named: "cloud"), weekName: "오늘", weekRain: "70%", weekMax: "최고: 20°", weekMin: "최소: 15°"),
         Weekend(weekWeatherImage: UIImage(named: "cloud"), weekName: "내일", weekRain: "70%", weekMax: "최고: 20°", weekMin: "최소: 15°"),
         Weekend(weekWeatherImage: UIImage(named: "cloud"), weekName: "금", weekRain: "70%", weekMax: "최고: 20°", weekMin: "최소: 15°"),
@@ -33,12 +33,14 @@ class WeatherViewController: UIViewController {
         Weekend(weekWeatherImage: UIImage(named: "cloud"), weekName: "일", weekRain: "70%", weekMax: "최고: 20°", weekMin: "최소: 15°"),
         Weekend(weekWeatherImage: UIImage(named: "cloud"), weekName: "월", weekRain: "70%", weekMax: "최고: 20°", weekMin: "최소: 15°"),
         Weekend(weekWeatherImage: UIImage(named: "cloud"), weekName: "화", weekRain: "70%", weekMax: "최고: 20°", weekMin: "최소: 15°")
+        
     ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         assignbackground()
+        
         _areaNameLabel.text = areaName
         _weatherIIamgeView.image = weatherIamge
         _tempLabel.text = "\(temp)°"
@@ -60,7 +62,7 @@ class WeatherViewController: UIViewController {
     
     func assignbackground() {
         
-        let background = self.background
+        let background = background
 
         var imageView : UIImageView!
         imageView = UIImageView(frame: view.bounds)
@@ -74,13 +76,12 @@ class WeatherViewController: UIViewController {
         
     }
 }
-
-
-
+//MARK: - TableDataSource
 extension WeatherViewController: UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         return weekArray.count
     }
     
@@ -95,7 +96,6 @@ extension WeatherViewController: UITableViewDataSource {
         cell.weekMaxLabel.text = weather.weekMax
         cell.weekMinLabel.text = weather.weekMin
         cell.weekRainLabel.text = weather.weekRain
-        
         
         return cell
     }

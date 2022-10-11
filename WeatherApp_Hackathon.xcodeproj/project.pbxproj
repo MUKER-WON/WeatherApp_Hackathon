@@ -13,7 +13,12 @@
 		B529266128EFD1BD00C54453 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B529266028EFD1BD00C54453 /* Assets.xcassets */; };
 		B529266428EFD1BD00C54453 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B529266228EFD1BD00C54453 /* LaunchScreen.storyboard */; };
 		B53F7C0228F45EDA0077526B /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53F7C0128F45EDA0077526B /* Product.swift */; };
-		B56F296C28F44023008271EC /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56F296B28F44023008271EC /* SideMenuViewController.swift */; };
+		B5BDF84528F4745E0085126B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5BDF84428F4745E0085126B /* Main.storyboard */; };
+		B5BDF84728F4767C0085126B /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BDF84628F4767C0085126B /* SideMenuViewController.swift */; };
+		B5BDF84928F4B5720085126B /* WeatehrData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BDF84828F4B5720085126B /* WeatehrData.swift */; };
+		B5BDF84B28F4CE7A0085126B /* ViewControllerArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BDF84A28F4CE7A0085126B /* ViewControllerArray.swift */; };
+		B5BDF85028F4D5320085126B /* SideTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BDF84E28F4D5320085126B /* SideTableViewCell.swift */; };
+		B5BDF85128F4D5320085126B /* SideTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5BDF84F28F4D5320085126B /* SideTableViewCell.xib */; };
 		B5D83F9028EFEE7A00DB33E6 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D83F8E28EFEE7A00DB33E6 /* WeatherViewController.swift */; };
 		B5D83F9128EFEE7A00DB33E6 /* WeatherViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5D83F8F28EFEE7A00DB33E6 /* WeatherViewController.xib */; };
 		B5D83F9328EFF29E00DB33E6 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D83F9228EFF29E00DB33E6 /* PageViewController.swift */; };
@@ -31,7 +36,12 @@
 		B529266328EFD1BD00C54453 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B529266528EFD1BD00C54453 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B53F7C0128F45EDA0077526B /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
-		B56F296B28F44023008271EC /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
+		B5BDF84428F4745E0085126B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../../../../.Trash/Main.storyboard; sourceTree = "<group>"; };
+		B5BDF84628F4767C0085126B /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
+		B5BDF84828F4B5720085126B /* WeatehrData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatehrData.swift; sourceTree = "<group>"; };
+		B5BDF84A28F4CE7A0085126B /* ViewControllerArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerArray.swift; sourceTree = "<group>"; };
+		B5BDF84E28F4D5320085126B /* SideTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideTableViewCell.swift; sourceTree = "<group>"; };
+		B5BDF84F28F4D5320085126B /* SideTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SideTableViewCell.xib; sourceTree = "<group>"; };
 		B5D83F8E28EFEE7A00DB33E6 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		B5D83F8F28EFEE7A00DB33E6 /* WeatherViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherViewController.xib; sourceTree = "<group>"; };
 		B5D83F9228EFF29E00DB33E6 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
@@ -85,10 +95,12 @@
 		B5F74DAB28F0842300833560 /* C */ = {
 			isa = PBXGroup;
 			children = (
-				B529265B28EFD1BC00C54453 /* ViewController.swift */,
+				B5F74DA728F07F1C00833560 /* WeekendCell.swift */,
+				B5BDF84E28F4D5320085126B /* SideTableViewCell.swift */,
 				B5D83F9228EFF29E00DB33E6 /* PageViewController.swift */,
 				B5D83F8E28EFEE7A00DB33E6 /* WeatherViewController.swift */,
-				B56F296B28F44023008271EC /* SideMenuViewController.swift */,
+				B5BDF84628F4767C0085126B /* SideMenuViewController.swift */,
+				B529265B28EFD1BC00C54453 /* ViewController.swift */,
 			);
 			path = C;
 			sourceTree = "<group>";
@@ -96,10 +108,12 @@
 		B5F74DAC28F0842600833560 /* V */ = {
 			isa = PBXGroup;
 			children = (
-				B5F74DA728F07F1C00833560 /* WeekendCell.swift */,
 				B5D83F8F28EFEE7A00DB33E6 /* WeatherViewController.xib */,
+				B5BDF84428F4745E0085126B /* Main.storyboard */,
 				B5F74DA828F07F1C00833560 /* WeekendCell.xib */,
+				B5BDF84F28F4D5320085126B /* SideTableViewCell.xib */,
 				B529266228EFD1BD00C54453 /* LaunchScreen.storyboard */,
+				B5BDF84A28F4CE7A0085126B /* ViewControllerArray.swift */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -108,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				B5F74DAE28F0847C00833560 /* Weekend.swift */,
+				B5BDF84828F4B5720085126B /* WeatehrData.swift */,
 			);
 			path = M;
 			sourceTree = "<group>";
@@ -171,8 +186,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B529266428EFD1BD00C54453 /* LaunchScreen.storyboard in Resources */,
+				B5BDF84528F4745E0085126B /* Main.storyboard in Resources */,
 				B5F74DAA28F07F1C00833560 /* WeekendCell.xib in Resources */,
 				B5D83F9128EFEE7A00DB33E6 /* WeatherViewController.xib in Resources */,
+				B5BDF85128F4D5320085126B /* SideTableViewCell.xib in Resources */,
 				B529266128EFD1BD00C54453 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -184,14 +201,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B56F296C28F44023008271EC /* SideMenuViewController.swift in Sources */,
 				B529265C28EFD1BC00C54453 /* ViewController.swift in Sources */,
 				B53F7C0228F45EDA0077526B /* Product.swift in Sources */,
 				B5D83F9328EFF29E00DB33E6 /* PageViewController.swift in Sources */,
 				B5D83F9028EFEE7A00DB33E6 /* WeatherViewController.swift in Sources */,
+				B5BDF84928F4B5720085126B /* WeatehrData.swift in Sources */,
+				B5BDF84B28F4CE7A0085126B /* ViewControllerArray.swift in Sources */,
+				B5BDF85028F4D5320085126B /* SideTableViewCell.swift in Sources */,
 				B5F74DAF28F0847C00833560 /* Weekend.swift in Sources */,
 				B5F74DA928F07F1C00833560 /* WeekendCell.swift in Sources */,
 				B529265828EFD1BC00C54453 /* AppDelegate.swift in Sources */,
+				B5BDF84728F4767C0085126B /* SideMenuViewController.swift in Sources */,
 				B529265A28EFD1BC00C54453 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

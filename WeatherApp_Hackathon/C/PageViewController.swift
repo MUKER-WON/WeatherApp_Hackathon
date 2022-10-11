@@ -8,11 +8,10 @@
 import UIKit
 import CoreLocation
 
-final class PageViewController: UIPageViewController {
+class PageViewController: UIPageViewController {
     
-    var pages = [UIViewController]()
+    static var pages = [UIViewController]()
     
-
     var pageControl = UIPageControl()
     
     let locationManager = CLLocationManager()
@@ -77,7 +76,21 @@ final class PageViewController: UIPageViewController {
     }
     
     @objc func listPressed() {
-        present(SideMenuViewController(), animated: true)
+        let VC = SideMenuViewController()
+        
+        VC.modalPresentationStyle = .pageSheet
+        if #available(iOS 15.0, *) {
+            if let sheet = VC.sheetPresentationController {
+                sheet.detents = [.medium(), .large()]
+                sheet.prefersGrabberVisible = true
+            }
+        } else {
+            
+        }
+        
+        
+        present(VC, animated: true)
+        
     }
     
     func setUI() {
@@ -129,10 +142,10 @@ final class PageViewController: UIPageViewController {
         itemVC4.minTemp = 24
         itemVC4.background = UIImage(named: "jeonju")
         
-        pages.append(itemVC1)
-        pages.append(itemVC2)
-        pages.append(itemVC3)
-        pages.append(itemVC4)
+        PageViewController.pages.append(itemVC1)
+        PageViewController.pages.append(itemVC2)
+        PageViewController.pages.append(itemVC3)
+        PageViewController.pages.append(itemVC4)
         
         setViewControllers([itemVC1], direction: .forward, animated: true)
         
@@ -145,7 +158,7 @@ final class PageViewController: UIPageViewController {
         pageControl.translatesAutoresizingMaskIntoConstraints = false
         pageControl.currentPageIndicatorTintColor = .white
         pageControl.pageIndicatorTintColor = .lightGray
-        pageControl.numberOfPages = pages.count
+        pageControl.numberOfPages = PageViewController.pages.count
         pageControl.currentPage = 0
         
         pageControl.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
@@ -157,9 +170,9 @@ final class PageViewController: UIPageViewController {
     @objc func pageControlTapped(sender: UIPageControl) {
         
         if sender.currentPage > self.currentIndex {
-            self.setViewControllers([pages[sender.currentPage]], direction: .forward, animated: true)
+            self.setViewControllers([PageViewController.pages[sender.currentPage]], direction: .forward, animated: true)
         } else {
-            self.setViewControllers([pages[sender.currentPage]], direction: .reverse, animated: true)
+            self.setViewControllers([PageViewController.pages[sender.currentPage]], direction: .reverse, animated: true)
         }
         
         self.currentIndex = sender.currentPage
@@ -167,29 +180,32 @@ final class PageViewController: UIPageViewController {
     }
     
 }
+
 //MARK: - ExtensionPageViewDataSource
+
 extension PageViewController: UIPageViewControllerDataSource {
+    
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
-        guard let currentIndex = pages.firstIndex(of: viewController) else { return nil }
+        guard let currentIndex = PageViewController.pages.firstIndex(of: viewController) else { return nil }
         
         self.currentIndex = currentIndex
         if currentIndex == 0 {
-            return pages.last
+            return PageViewController.pages.last
         } else {
-            return pages[currentIndex - 1]
+            return PageViewController.pages[currentIndex - 1]
         }
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         
-        guard let currentIndex = pages.firstIndex(of: viewController) else { return nil}
+        guard let currentIndex = PageViewController.pages.firstIndex(of: viewController) else { return nil}
         
         self.currentIndex = currentIndex
-        if currentIndex == pages.count - 1 {
-            return pages.first
+        if currentIndex == PageViewController.pages.count - 1 {
+            return PageViewController.pages.first
         } else {
-            return pages[currentIndex + 1]
+            return PageViewController.pages[currentIndex + 1]
         }
         
     }
